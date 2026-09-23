@@ -1,0 +1,41 @@
+---
+const { content } = Astro.props;
+---
+
+<section id="experience" class="mx-auto max-w-7xl px-8 py-14">
+
+    <div class="mb-3 h-1 w-10 rounded-full bg-indigo-600"></div>
+
+    <h2 class="mb-8 text-3xl font-bold tracking-tight">
+        {content.title}
+    </h2>
+
+    <div class="grid gap-4">
+
+        {content.items.map((item: { date: string; title: string; place: string; alternance?: boolean; }) => (
+                <div class="flex items-center justify-between rounded-2xl border border-slate-200 bg-white p-6 transition hover:border-indigo-200 hover:shadow-md">
+
+                    <div>
+                <span class="text-sm font-medium text-indigo-600">
+                    {item.date}
+                </span>
+
+                        <h3 class="mt-2 text-xl font-semibold">
+                            {item.title}
+                        </h3>
+
+                        <p class="mt-1 text-slate-500">
+                            {item.place}
+                        </p>
+                    </div>
+
+                    {item.alternance && (
+                            <span class="rounded-full bg-indigo-50 px-4 py-2 text-sm font-medium text-indigo-700">Alternance - ProCapital</span>
+                    )}
+
+                </div>
+        ))}
+
+    </div>
+
+</section>

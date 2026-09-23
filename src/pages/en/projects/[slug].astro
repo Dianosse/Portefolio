@@ -1,0 +1,58 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { projects } from "../../../data/projects";
+const base = import.meta.env.BASE_URL;
+
+export function getStaticPaths() {
+    return projects.map((project) => ({
+        params: {
+            slug: project.slug
+        },
+
+        props: {
+            project
+        }
+    }));
+}
+
+const { project } = Astro.props;
+
+const content = project.en;
+const imagePath = `${base}/${project.image.replace(/^\//, "")}`;
+---
+
+<Layout title={`${project.name} — Antoine`} lang="en">
+
+    <main class="max-w-4xl mx-auto px-6 py-24">
+
+        <a href={`${base}/en/projects/`} class="text-zinc-500 hover:underline">
+            ← Back
+        </a>
+
+        <img src={imagePath} alt={project.name} class="mt-4 mb-5 w-full rounded-xl"/>
+
+        <h1 class="text-5xl font-bold mt-8">
+            {project.name}
+        </h1>
+
+        <div class="flex gap-2 mt-6">
+
+            {project.stack.map((tech) => (
+                    <span class="border border-zinc-700 px-3 py-1 rounded">
+                    {tech}
+                </span>
+            ))}
+
+        </div>
+
+        <p class="text-slate-600 text-lg leading-8 mt-10 whitespace-pre-line">
+            {content.description}
+        </p>
+
+        <a href={project.github} class="inline-block mt-10 border border-zinc-700 px-5 py-3 rounded-lg">
+            GitHub
+        </a>
+
+    </main>
+
+</Layout>

@@ -1,0 +1,27 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Hero from "../../components/Hero.astro";
+import About from "../../components/About.astro";
+import Experience from "../../components/Experience.astro";
+import Skills from "../../components/Skills.astro";
+import Projects from "../../components/Projects.astro";
+import Footer from "../../components/Footer.astro";
+
+import { en } from "../../data/en";
+import { projects } from "../../data/projects";
+---
+
+<Layout title="Antoine — Portfolio" description="Antoine's portfolio" lang="en">
+    <Navbar content={en.nav} lang="en" />
+
+    <main>
+        <Hero content={en.hero} />
+        <About content={en.about} />
+        <Experience content={en.experience} />
+        <Skills content={en.skills} />
+        <Projects content={en.projects} projects={projects} lang="en"/>
+    </main>
+
+    <Footer content={en.footer} />
+</Layout>

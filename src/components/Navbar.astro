@@ -1,0 +1,66 @@
+---
+const { content, lang } = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+
+const otherLang = lang === "fr" ? "en" : "fr";
+const currentPath = Astro.url.pathname;
+
+const switchPath = currentPath.replace(
+    `/${lang}/`,
+    `/${otherLang}/`
+);
+
+const cvPath = lang === "fr"
+    ? `${base}/CV_ENG.pdf`
+    : `${base}/CV_ENG.pdf`;
+
+---
+
+<nav class="fixed top-0 z-50 w-full border-b border-slate-200 bg-white/80 backdrop-blur-xl">
+
+    <div class="mx-auto flex h-24 max-w-screen-2xl items-center justify-between px-10">
+
+        <a href={`${base}/${lang}/`} class="text-xl font-bold tracking-tight">
+            Antoine LIEVRE - Portfolio
+        </a>
+
+        <div class="flex items-center gap-6 text-base font-medium">
+            <a href={`${base}/${lang}/#about`} class="hover:text-indigo-600">
+                {content.about}
+            </a>
+
+            <a href={`${base}/${lang}/#experience`} class="hover:text-indigo-600">
+                {content.experience}
+            </a>
+
+            <a href={`${base}/${lang}/#skills`} class="hover:text-indigo-600">
+                {content.skills}
+            </a>
+
+            <a href={`${base}/${lang}/projects/`} class="hover:text-indigo-600">
+                {content.projects}
+            </a>
+
+            <a href={`${base}/${lang}/#footer`} class="hover:text-indigo-600">
+                {content.contact}
+            </a>
+
+            <div class="h-5 w-px bg-slate-200"></div>
+
+            <a href="https://github.com/Dianosse" target="_blank" class="rounded-lg border border-slate-300 bg-slate-900 px-4 py-2 text-white transition hover:bg-slate-800">
+                GitHub
+            </a>
+
+            <a href={cvPath} target="_blank" class="rounded-lg bg-indigo-600 px-4 py-2 text-white transition hover:bg-indigo-700">
+                CV
+            </a>
+
+            <a href={switchPath} class="rounded-lg bg-slate-100 px-3 py-2 hover:bg-slate-200">
+                {otherLang.toUpperCase()}
+            </a>
+        </div>
+
+    </div>
+
+</nav>

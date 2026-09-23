@@ -1,0 +1,33 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+
+const {
+    content,
+    lang,
+    projects
+} = Astro.props;
+---
+
+<section id="projects" class="max-w-7xl mx-auto px-8 py-14">
+
+    <div class="flex justify-between items-center mb-10">
+
+        <h2 class="text-3xl font-bold">
+            {content.title}
+        </h2>
+
+        <a href={`/${lang}/projects/`} class="text-slate-600 hover:underline">
+            {content.seeAll} →
+        </a>
+
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+
+        {projects.slice(0, 4).map((project: unknown) => (
+                <ProjectCard project={project} lang={lang}/>
+        ))}
+
+    </div>
+
+</section>
