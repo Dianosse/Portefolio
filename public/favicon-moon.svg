@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="moonFill" cx="38%" cy="34%" r="70%">
+      <stop offset="0%" stop-color="#fff8c9"/>
+      <stop offset="45%" stop-color="#f7df72"/>
+      <stop offset="100%" stop-color="#d9a92f"/>
+    </radialGradient>
+
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <clipPath id="crescentClip">
+      <path d="M315 71
+               C205 77 119 166 119 276
+               C119 385 207 473 316 473
+               C374 473 425 448 461 408
+               C417 430 367 432 323 414
+               C248 384 205 306 222 227
+               C236 159 275 106 315 71Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- subtle glow -->
+  <path d="M315 71
+           C205 77 119 166 119 276
+           C119 385 207 473 316 473
+           C374 473 425 448 461 408
+           C417 430 367 432 323 414
+           C248 384 205 306 222 227
+           C236 159 275 106 315 71Z"
+        fill="#f5cf55" opacity="0.35" filter="url(#softGlow)"/>
+
+  <!-- crescent -->
+  <path d="M315 71
+           C205 77 119 166 119 276
+           C119 385 207 473 316 473
+           C374 473 425 448 461 408
+           C417 430 367 432 323 414
+           C248 384 205 306 222 227
+           C236 159 275 106 315 71Z"
+        fill="url(#moonFill)"/>
+
+  <!-- painterly strokes -->
+  <g clip-path="url(#crescentClip)" fill="none" stroke-linecap="round">
+    <path d="M132 214 C177 176 231 156 290 159" stroke="#fff3a6" stroke-width="12"/>
+    <path d="M126 255 C176 217 230 202 280 208" stroke="#e7bb3c" stroke-width="10"/>
+    <path d="M130 301 C176 269 225 256 270 260" stroke="#ffe98a" stroke-width="13"/>
+    <path d="M145 350 C185 326 223 317 260 320" stroke="#d89c28" stroke-width="11"/>
+    <path d="M170 397 C207 380 240 377 273 384" stroke="#f8d45e" stroke-width="14"/>
+
+    <path d="M188 129 C221 113 255 105 287 107" stroke="#f9d75d" stroke-width="9"/>
+    <path d="M164 165 C200 144 239 136 278 140" stroke="#fff0a1" stroke-width="7"/>
+
+    <path d="M164 236 C184 226 199 225 217 228" stroke="#c98e22" stroke-width="6"/>
+    <path d="M158 325 C180 313 199 309 219 312" stroke="#fff1a4" stroke-width="7"/>
+    <path d="M205 426 C225 418 244 417 263 421" stroke="#c98d20" stroke-width="6"/>
+  </g>
+
+  <!-- small crater-like brush marks -->
+  <g opacity="0.42">
+    <ellipse cx="184" cy="247" rx="17" ry="10" fill="#c48b20" transform="rotate(-20 184 247)"/>
+    <ellipse cx="194" cy="337" rx="13" ry="8" fill="#fff0a0" transform="rotate(18 194 337)"/>
+    <ellipse cx="238" cy="184" rx="11" ry="7" fill="#c78c21" transform="rotate(-8 238 184)"/>
+    <ellipse cx="243" cy="402" rx="15" ry="9" fill="#fff0a0" transform="rotate(20 243 402)"/>
+  </g>
+</svg>

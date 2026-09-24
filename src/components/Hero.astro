@@ -6,27 +6,37 @@ const { content } = Astro.props;
 
     <div class="max-w-4xl">
 
-        <h2 class="text-2xl mb-3 font-semibold text-slate-600">
+        <h2 class="text-2xl mb-3 font-semibold text-slate-600 dark:text-slate-400">
             {content.greeting}
         </h2>
 
-        <h1 class="text-6xl font-bold tracking-tight md:text-8xl">
+        <h1 class="text-6xl font-bold tracking-tight text-slate-950 dark:text-slate-100 md:text-8xl">
             {content.name}
         </h1>
 
-        <h2 class="mt-5 text-2xl font-medium text-slate-600 md:text-3xl">
+        <h2 class="mt-5 text-2xl font-medium text-slate-600 dark:text-slate-400 md:text-3xl">
             {content.title}
         </h2>
 
         <div class="mt-8 flex gap-4">
 
-            <a href="#projects" class="rounded-xl bg-indigo-600 px-6 py-3 font-medium text-white transition hover:bg-indigo-700">
+            <a href="#projects"
+                    class="rounded-xl bg-indigo-600 px-6 py-3 font-medium text-white transition
+                       hover:bg-indigo-700
+                       dark:bg-indigo-500 dark:hover:bg-indigo-400"
+            >
                 Mes projets
             </a>
 
-            <a href="https://github.com/Dianosse" class="rounded-lg border border-slate-300 bg-slate-900 px-4 py-2 text-white transition hover:bg-slate-800">
+            <a href="https://github.com/Dianosse"
+                    class="rounded-lg border border-slate-300 bg-slate-900 px-4 py-2 text-white transition
+                       hover:bg-slate-800
+                       dark:border-slate-600 dark:bg-slate-100 dark:text-slate-900
+                       dark:hover:bg-white"
+            >
                 GitHub
             </a>
+
         </div>
 
     </div>

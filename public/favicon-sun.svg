@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="sunGlow" cx="45%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#fff7a8"/>
+      <stop offset="45%" stop-color="#ffd84d"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </radialGradient>
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <g transform="translate(256 256)" stroke-linecap="round">
+    <!-- Rays -->
+    <g stroke="#f59e0b" stroke-width="18">
+      <line x1="0" y1="-150" x2="0" y2="-218"/>
+      <line x1="0" y1="150" x2="0" y2="218"/>
+      <line x1="-150" y1="0" x2="-218" y2="0"/>
+      <line x1="150" y1="0" x2="218" y2="0"/>
+      <line x1="-106" y1="-106" x2="-154" y2="-154"/>
+      <line x1="106" y1="-106" x2="154" y2="-154"/>
+      <line x1="-106" y1="106" x2="-154" y2="154"/>
+      <line x1="106" y1="106" x2="154" y2="154"/>
+    </g>
+
+    <!-- Smaller painterly rays -->
+    <g stroke="#fbbf24" stroke-width="11">
+      <line x1="-58" y1="-143" x2="-82" y2="-202"/>
+      <line x1="58" y1="-143" x2="82" y2="-202"/>
+      <line x1="-58" y1="143" x2="-82" y2="202"/>
+      <line x1="58" y1="143" x2="82" y2="202"/>
+      <line x1="-143" y1="-58" x2="-202" y2="-82"/>
+      <line x1="143" y1="-58" x2="202" y2="-82"/>
+      <line x1="-143" y1="58" x2="-202" y2="82"/>
+      <line x1="143" y1="58" x2="202" y2="82"/>
+    </g>
+
+    <!-- Sun -->
+    <circle r="112" fill="url(#sunGlow)" filter="url(#softGlow)"/>
+
+    <!-- Swirly brush-stroke details -->
+    <path d="M-66,-20 C-35,-65 35,-62 65,-22 C89,10 70,55 29,69"
+          fill="none" stroke="#fff1a0" stroke-width="12"/>
+    <path d="M-47,48 C-71,19 -62,-19 -34,-39"
+          fill="none" stroke="#f97316" stroke-width="9"/>
+    <path d="M-13,-76 C19,-84 51,-64 68,-37"
+          fill="none" stroke="#fde047" stroke-width="8"/>
+  </g>
+</svg>

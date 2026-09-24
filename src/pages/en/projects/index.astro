@@ -5,24 +5,28 @@ import ProjectCard from "../../../components/ProjectCard.astro";
 
 import { en } from "../../../data/en";
 import { projects } from "../../../data/projects";
+
 const base = import.meta.env.BASE_URL;
 ---
 
-<Layout title="Projets — Antoine" lang="en">
+<Layout title="Projects — Antoine" lang="en">
 
     <Navbar content={en.nav} lang="en" />
 
     <main class="max-w-5xl mx-auto px-6 pt-32 pb-24">
 
-        <h1 class="text-5xl font-bold mb-12">Mes projets</h1>
+        <h1 class="text-5xl font-bold mb-12 text-slate-950 dark:text-slate-100">
+            My projects
+        </h1>
 
         <div class="grid md:grid-cols-2 gap-6">
 
             {projects.map((project) => (
-                    <ProjectCard project={project} lang="en"/>
+                    <ProjectCard project={project} lang="en" />
             ))}
 
         </div>
+
     </main>
 
 </Layout>
